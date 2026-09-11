@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #141414;
+  --color-brick: #c8262c;
+  --color-brick-dark: #8f1a1f;
+  --color-canvas: #FBF8F3;
+  --color-card: #ffffff;
+  --color-steel: #6b6f73;
+  --color-line: #ececE7;
+
+  --font-display: var(--font-display), "Helvetica Neue", Arial, sans-serif;
+  --font-body: var(--font-body), "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Courier New", monospace;
+
+  --animate-slide: slide 14s linear infinite;
+  --animate-slide-slow: slide 20s linear infinite;
+  --animate-ticker: ticker 22s linear infinite;
+
+  @keyframes slide {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+::selection {
+  background: var(--color-brick);
+  color: #fff;
+}
+
+.stripe-bg {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--stripe-a, #141414) 0 24px,
+    var(--stripe-b, #c8262c) 24px 48px
+  );
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-ticker {
+  animation: ticker 50s linear infinite;
+}
+.ticker-wrap:hover .animate-ticker {
+  animation-play-state: paused;
+}

@@ -4,12 +4,12 @@ import Link from "next/link";
 const departments = [
   {
     label: "Sales/Inquiry",
-    email: "sales@arsinfrasteel.com",
+    email: "info@arsinfrasteel.com",
     phone: "+91-8285123275",
   },
   {
-    label: "Company Office Number",
-    email: "info@arsinfrasteel.com",
+    label: "Registered Office Number",
+    email: "",
     phone: "+91-9810209509 \n+91-8285123277",
   },
 ];
@@ -32,7 +32,7 @@ export default function ContactPage() {
               className="flex flex-col gap-2.5 rounded-2xl border border-black/20 bg-card p-5 sm:gap-3 sm:rounded-[18px] sm:p-6 md:flex-row md:items-center md:justify-between"
             >
               <div>
-                <span className="text-[14px] text-steel">{dept.label}</span>
+                <span className="text-[14px] text-ink">{dept.label}</span>
                 <p className="break-words text-base font-bold sm:text-lg">
                   <a href={`mailto:${dept.email}`} className="hover:underline">
                     {dept.email}
@@ -55,14 +55,14 @@ export default function ContactPage() {
 
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
             <div className="rounded-2xl border border-black/20 bg-card p-5 sm:rounded-[18px] sm:p-6">
-              <span className="text-[11.5px] text-steel">Works</span>
-              <p className="text-base font-bold sm:text-lg">
+              <span className="text-[14px] text-ink">Works</span>
+              <p className="text-base font-bold sm:text-md">
                 41/4, Bahalgarh-Sonipat Road, Near Deewan Palace Hotel, Sonipat, Haryana - 131001
               </p>
             </div>
             <div className="rounded-2xl border border-black/20 bg-card p-5 sm:rounded-[18px] sm:p-6">
-              <span className="text-[11.5px] text-steel">Correspondence</span>
-              <p className="text-base font-bold sm:text-lg">
+              <span className="text-[14px] text-ink">Correspondence</span>
+              <p className="text-base font-bold sm:text-md">
                 3031-Ats Triumph, Third Floor, Dwarka Expressway, Gurugram, Haryana - 122006
               </p>
             </div>

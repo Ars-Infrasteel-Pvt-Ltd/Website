@@ -243,9 +243,9 @@ export async function submitQuoteRequest(
   try {
     await resend.emails.send({
       from: "Quote Requests <onboarding@resend.dev>",
-      to: ["krishahlawat2520@gmail.com"],
+      to: ["info@arsinfrasteel.com"],
       replyTo: data.email,
-      subject: `New Quote Request — ${data.name}`,
+      subject: `New Quote Request: ${data.name}`,
       html: buildEmailHtml(data),
     });
 

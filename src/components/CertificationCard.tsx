@@ -52,7 +52,7 @@ export default function CertificationCard({
   const pdfSrc = `${fileUrl}#toolbar=0&navpanes=0&scrollbar=0`;
 
   return (
-    <div className="relative flex h-full flex-col p-6 sm:p-7">
+    <div className="relative flex h-full flex-col p-6 border border-black/20 sm:p-7">
       <div className="mb-5 flex h-11 w-11 items-center rounded justify-center bg-ink text-[11px] font-bold text-white">
         {tag}
       </div>

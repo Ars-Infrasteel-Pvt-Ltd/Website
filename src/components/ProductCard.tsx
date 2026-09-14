@@ -21,7 +21,7 @@ export default function ProductCard({ product }: { product: Product }) {
       ref={ref}
       href={`/products/${product.slug}`}
       onMouseMove={handleMouseMove}
-      className="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-card transition-colors duration-300 hover:border-brick/30 sm:rounded-3xl"
+      className="group relative flex flex-col overflow-hidden rounded-2xl border border-black/20 bg-card transition-colors duration-300 hover:border-brick/30 sm:rounded-3xl"
     >
       {/* cursor-tracked spotlight — unchanged */}
       <span
@@ -37,12 +37,15 @@ export default function ProductCard({ product }: { product: Product }) {
 
       {/* photo header */}
       <div className="relative h-32 overflow-hidden border-b border-line sm:h-36 md:h-40">
-        
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={product.image}
           alt={product.name}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className={`h-full w-full transition-transform duration-500 group-hover:scale-105 ${
+            product.slug === "key-cutting-machines"
+              ? "object-contain"
+              : "object-cover"
+          }`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/10 to-transparent" />
         {/* <div className="absolute bottom-3 left-4 flex h-9 w-9 items-center justify-center rounded-xl bg-white/90 text-ink backdrop-blur-sm transition-colors duration-300 group-hover:text-brick sm:h-10 sm:w-10">
@@ -52,21 +55,23 @@ export default function ProductCard({ product }: { product: Product }) {
 
       <div className="relative z-[2] flex flex-1 flex-col p-5 sm:p-6 md:p-7">
         <div className="mb-2.5 flex flex-wrap gap-1.5">
-    <span
-      className={`rounded-full px-2.5 py-1 text-[10.5px] font-bold uppercase tracking-wide ${
-        product.sourceType === "imported"
-          ? "bg-blue-50 text-blue-700"
-          : "bg-brick/10 text-brick"
-      }`}
-    >
-      {product.sourceType === "imported" ? "Imported" : "In-House Manufactured"}
-    </span>
-    {product.isDataCenter && (
-      <span className="rounded-full bg-ink/5 px-2.5 py-1 text-[10.5px] font-bold uppercase tracking-wide text-ink">
-        Data Center
-      </span>
-    )}
-  </div>
+          <span
+            className={`rounded-full px-2.5 py-1 text-[10.5px] font-bold uppercase tracking-wide ${
+              product.sourceType === "imported"
+                ? "bg-blue-50 text-blue-700"
+                : "bg-brick/10 text-brick"
+            }`}
+          >
+            {product.sourceType === "imported"
+              ? "Imported"
+              : "In-House Manufactured"}
+          </span>
+          {product.isDataCenter && (
+            <span className="rounded-full bg-ink/5 px-2.5 py-1 text-[10.5px] font-bold uppercase tracking-wide text-ink">
+              Data Center
+            </span>
+          )}
+        </div>
         <h3 className="mb-2 font-display text-lg font-bold tracking-tight sm:text-xl">
           {product.name}
         </h3>

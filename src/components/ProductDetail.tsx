@@ -162,7 +162,7 @@ export default function ProductDetail({ slug }: { slug: string }) {
       <div className="grid grid-cols-1 gap-8 sm:gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
         {/* ---------- Left: slideable image gallery ---------- */}
         <div>
-          <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-line bg-card sm:rounded-[24px]">
+          <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-black/20 bg-card sm:rounded-[24px]">
             <Image
               key={activeImage}
               src={gallery[activeImage]}
@@ -218,7 +218,7 @@ export default function ProductDetail({ slug }: { slug: string }) {
                   type="button"
                   onClick={() => goTo(i)}
                   aria-label={`View image ${i + 1}`}
-                  className={`relative aspect-square cursor-pointer overflow-hidden rounded-xl border bg-card transition sm:rounded-[14px] ${
+                  className={`relative aspect-square cursor-pointer border border-black/20 overflow-hidden rounded-xl bg-card transition sm:rounded-[14px] ${
                     i === activeImage
                       ? "border-brick ring-2 ring-brick/20"
                       : "border-line hover:border-steel/40"
@@ -248,15 +248,15 @@ export default function ProductDetail({ slug }: { slug: string }) {
 
           {/* Spec highlight strip */}
           <div className="mb-6 flex flex-wrap gap-2.5 sm:mb-8 sm:gap-3">
-            <div className="rounded-2xl border border-line bg-card px-4 py-3 sm:rounded-[16px] sm:px-5 sm:py-3.5">
+            <div className="rounded-2xl border border-black/20 bg-card px-4 py-3 sm:rounded-2xl sm:px-3 sm:py-3.5">
               <b className="block text-sm font-bold text-ink">{product.spec}</b>
               <span className="text-[11px] text-steel">Available types</span>
             </div>
-            <div className="rounded-2xl border border-line bg-card px-4 py-3 sm:rounded-[16px] sm:px-5 sm:py-3.5">
+            <div className="rounded-2xl border border-black/20 bg-card px-4 py-3 sm:rounded-2xl sm:px-3 sm:py-3.5">
               <b className="block text-sm font-bold text-ink">Custom</b>
               <span className="text-[11px] text-steel">Pricing &amp; MOQ</span>
             </div>
-            <div className="rounded-2xl border border-line bg-card px-4 py-3 sm:rounded-[16px] sm:px-5 sm:py-3.5">
+            <div className="rounded-2xl border border-black/20 bg-card px-4 py-3 sm:rounded-2xl sm:px-3 sm:py-3.5">
               <b className="block text-sm font-bold text-ink">
                 {isImported ? "Global" : "Pan-India"}
               </b>
@@ -269,10 +269,10 @@ export default function ProductDetail({ slug }: { slug: string }) {
           {/* What is it? */}
           {product.overview && (
             <div className="mb-6 sm:mb-8">
-              <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-steel">
+              <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-black">
                 What is it?
               </h2>
-              <p className="text-[14.5px] leading-relaxed text-steel sm:text-[15px]">
+              <p className="text-[14.5px] leading-relaxed text-ink sm:text-[15px]">
                 {product.overview}
               </p>
             </div>
@@ -281,7 +281,7 @@ export default function ProductDetail({ slug }: { slug: string }) {
           {/* Advantages / use cases */}
           {product.useCases && product.useCases.length > 0 && (
             <div className="mb-6 sm:mb-8">
-              <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-steel">
+              <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-black">
                 Advantages &amp; use cases
               </h2>
               <ul className="space-y-2">
@@ -330,7 +330,7 @@ export default function ProductDetail({ slug }: { slug: string }) {
                 {product.types.map((type) => (
                   <span
                     key={type}
-                    className="rounded-full border border-line bg-white px-3.5 py-1.5 text-[13px] font-medium text-ink transition hover:border-brick hover:text-brick sm:px-4 sm:py-2"
+                    className="rounded-full border border-black/20 bg-white px-3.5 py-1.5 text-[13px] font-medium text-ink transition hover:border-brick hover:text-brick sm:px-4 sm:py-2"
                   >
                     {type}
                   </span>
@@ -349,7 +349,7 @@ export default function ProductDetail({ slug }: { slug: string }) {
                 {product.styles.map((style) => (
                   <span
                     key={style}
-                    className="rounded-full border border-line bg-white px-3.5 py-1.5 text-[13px] font-medium text-ink transition hover:border-brick hover:text-brick sm:px-4 sm:py-2"
+                    className="rounded-full border border-black/20 bg-white px-3.5 py-1.5 text-[13px] font-medium text-ink transition hover:border-brick hover:text-brick sm:px-4 sm:py-2"
                   >
                     {style}
                   </span>
@@ -368,7 +368,7 @@ export default function ProductDetail({ slug }: { slug: string }) {
                 {product.finishes.map((finish) => (
                   <span
                     key={finish}
-                    className="rounded-full border border-line bg-white px-3.5 py-1.5 text-[13px] font-medium text-ink transition hover:border-brick hover:text-brick sm:px-4 sm:py-2"
+                    className="rounded-full border border-black/20 bg-white px-3.5 py-1.5 text-[13px] font-medium text-ink transition hover:border-brick hover:text-brick sm:px-4 sm:py-2"
                   >
                     {finish}
                   </span>
@@ -387,7 +387,7 @@ export default function ProductDetail({ slug }: { slug: string }) {
                 {product.accessories.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-line bg-white px-3.5 py-1.5 text-[13px] font-medium text-ink transition hover:border-brick hover:text-brick sm:px-4 sm:py-2"
+                    className="rounded-full border border-black/20 bg-white px-3.5 py-1.5 text-[13px] font-medium text-ink transition hover:border-brick hover:text-brick sm:px-4 sm:py-2"
                   >
                     {item}
                   </span>
@@ -402,7 +402,7 @@ export default function ProductDetail({ slug }: { slug: string }) {
               <h2 className="mb-3 text-xs font-bold uppercase tracking-widest text-steel">
                 Specifications
               </h2>
-              <div className="overflow-hidden rounded-2xl border border-line">
+              <div className="overflow-hidden rounded-2xl border border-black/20">
                 <table className="w-full text-sm">
                   <tbody>
                     {product.specifications.map((spec, i) => (
@@ -425,73 +425,73 @@ export default function ProductDetail({ slug }: { slug: string }) {
           )}
 
           {/* Regional approvals / compliance */}
-{product.compliance && (
-  <div className="mb-6 rounded-2xl border border-line bg-card p-5 sm:mb-8 sm:rounded-[20px] sm:p-6">
-    <div className="mb-5 flex items-center gap-2.5 text-ink">
-      <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-ink/5 text-ink">
-        <GlobeIcon size={16} />
-      </span>
-      <h2 className="text-xs font-bold uppercase tracking-widest text-steel">
-        Certified &amp; Approved for Sale
-      </h2>
-    </div>
+          {/* {product.compliance && (
+            <div className="mb-6 rounded-2xl border-black/30 bg-[FAF8F3] p-5 sm:mb-8 sm:rounded-[20px] sm:p-6">
+              <div className="mb-5 flex items-center gap-2.5 text-ink">
+                <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-ink/5 text-ink">
+                  <GlobeIcon size={16} />
+                </span>
+                <h2 className="text-xs font-bold uppercase tracking-widest text-steel">
+                  Certified &amp; Approved for Sale
+                </h2>
+              </div>
 
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
-      {(
-        [
-          ["Europe", product.compliance.europe],
-          ["Asia", product.compliance.asia],
-        ] as const
-      ).map(([label, region]) => (
-        <div
-          key={label}
-          className="rounded-xl border border-line bg-white p-4 sm:rounded-[16px] sm:p-5"
-        >
-          <p className="mb-1.5 text-[11px] font-bold uppercase tracking-wide text-steel">
-            {label}
-          </p>
-          <p className="mb-4 text-[14px] font-semibold text-ink sm:text-[14.5px]">
-            {region.status}
-          </p>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
+                {(
+                  [
+                    ["Europe", product.compliance.europe],
+                    ["Asia", product.compliance.asia],
+                  ] as const
+                ).map(([label, region]) => (
+                  <div
+                    key={label}
+                    className="rounded-xl border border-black/20 bg-[FAF8F3] p-4 sm:rounded-[16px] sm:p-5"
+                  >
+                    <p className="mb-1.5 text-[11px] font-bold uppercase tracking-wide text-steel">
+                      {label}
+                    </p>
+                    <p className="mb-4 text-[14px] font-semibold text-ink sm:text-[14.5px]">
+                      {region.status}
+                    </p>
 
-          <div className="flex flex-wrap gap-2.5">
-            {region.standards.map((std) => {
-              const logo = standardsLogos[std];
-              return (
-                <div
-                  key={std}
-                  className="flex min-w-[72px] flex-1 flex-col items-center gap-2 rounded-xl border border-line bg-card px-2 py-3"
-                >
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-white ring-1 ring-line/60">
-                    {logo ? (
-                      <Image
-                        src={logo}
-                        alt={std}
-                        width={36}
-                        height={36}
-                        className="h-8 w-8 object-contain"
-                      />
-                    ) : (
-                      <span className="flex h-full w-full items-center justify-center rounded-lg bg-ink/5 text-[10px] font-bold uppercase text-steel">
-                        {std.length <= 3 ? std : std.slice(0, 2)}
-                      </span>
-                    )}
+                    <div className="flex flex-wrap gap-2.5">
+                      {region.standards.map((std) => {
+                        const logo = standardsLogos[std];
+                        return (
+                          <div
+                            key={std}
+                            className="flex min-w-[72px] flex-1 flex-col items-center gap-2 rounded-xl border border-line bg-card px-2 py-3"
+                          >
+                            <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-white ring-1 ring-line/60">
+                              {logo ? (
+                                <Image
+                                  src={logo}
+                                  alt={std}
+                                  width={36}
+                                  height={36}
+                                  className="h-8 w-8 object-contain"
+                                />
+                              ) : (
+                                <span className="flex h-full w-full items-center justify-center rounded-lg bg-ink/5 text-[10px] font-bold uppercase text-steel">
+                                  {std.length <= 3 ? std : std.slice(0, 2)}
+                                </span>
+                              )}
+                            </div>
+                            <span className="text-center text-[11px] font-medium leading-tight text-steel">
+                              {std}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
-                  <span className="text-center text-[11px] font-medium leading-tight text-steel">
-                    {std}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-)}
+                ))}
+              </div>
+            </div>
+          )} */}
 
           {/* CTA block — sticky-feeling card instead of cart/buy */}
-          <div className="hidden rounded-2xl border border-line bg-card p-5 sm:rounded-[20px] sm:p-6 lg:block">
+          <div className="hidden rounded-2xl border border-black/20 bg-card p-5 sm:rounded-[20px] sm:p-6 lg:block">
             <p className="mb-4 text-sm text-steel">
               Get a custom quote for your project specs, quantities and delivery
               timeline.
@@ -513,7 +513,7 @@ export default function ProductDetail({ slug }: { slug: string }) {
       {/* ---------- Key features ---------- */}
       {product.features && product.features.length > 0 && (
         <div className="mt-12 sm:mt-16 md:mt-20">
-          <div className="rounded-2xl border border-line bg-card p-5 sm:rounded-[28px] sm:p-8 md:p-12">
+          <div className="rounded-2xl border border-black/20 bg-card p-5 sm:rounded-[28px] sm:p-8 md:p-12">
             <div className="mb-6 flex items-end justify-between gap-4 border-b border-line pb-5 sm:mb-8 sm:pb-6">
               <div>
                 <h2 className="text-xl font-bold tracking-tight sm:text-2xl md:text-4xl">

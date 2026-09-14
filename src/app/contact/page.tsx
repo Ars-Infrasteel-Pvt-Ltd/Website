@@ -10,7 +10,7 @@ const departments = [
   {
     label: "Company Office Number",
     email: "info@arsinfrasteel.com",
-    phone: "+91-9810209509 / +91-8285123277",
+    phone: "+91-9810209509 \n+91-8285123277",
   },
 ];
 
@@ -29,7 +29,7 @@ export default function ContactPage() {
           {departments.map((dept) => (
             <div
               key={dept.email}
-              className="flex flex-col gap-2.5 rounded-2xl border border-line bg-card p-5 sm:gap-3 sm:rounded-[18px] sm:p-6 md:flex-row md:items-center md:justify-between"
+              className="flex flex-col gap-2.5 rounded-2xl border border-black/20 bg-card p-5 sm:gap-3 sm:rounded-[18px] sm:p-6 md:flex-row md:items-center md:justify-between"
             >
               <div>
                 <span className="text-[14px] text-steel">{dept.label}</span>
@@ -40,32 +40,36 @@ export default function ContactPage() {
                 </p>
               </div>
               <p className="text-base font-bold sm:text-lg md:whitespace-nowrap">
-                <a href={`tel:${dept.phone}`} className="hover:underline">
-                  {dept.phone}
-                </a>
+                {dept.phone.split("\n").map((phone) => (
+                  <a
+                    key={phone}
+                    href={`tel:${phone}`}
+                    className="block hover:underline"
+                  >
+                    {phone}
+                  </a>
+                ))}
               </p>
             </div>
           ))}
 
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
-            <div className="rounded-2xl border border-line bg-card p-5 sm:rounded-[18px] sm:p-6">
+            <div className="rounded-2xl border border-black/20 bg-card p-5 sm:rounded-[18px] sm:p-6">
               <span className="text-[11.5px] text-steel">Works</span>
               <p className="text-base font-bold sm:text-lg">
-                41/4, Bahalgarh-Sonipat Road, Near Deewan Palace Hotel, P.O.
-                Fazilpur, Sonipat - 131001, Haryana, India
+                41/4, Bahalgarh-Sonipat Road, Near Deewan Palace Hotel, Sonipat, Haryana - 131001
               </p>
             </div>
-            <div className="rounded-2xl border border-line bg-card p-5 sm:rounded-[18px] sm:p-6">
+            <div className="rounded-2xl border border-black/20 bg-card p-5 sm:rounded-[18px] sm:p-6">
               <span className="text-[11.5px] text-steel">Correspondence</span>
               <p className="text-base font-bold sm:text-lg">
-                16, 1st Floor, Anupama Apartment, Mehrauli Road, New Delhi -
-                110068, India
+                3031-Ats Triumph, Third Floor, Dwarka Expressway, Gurugram, Haryana - 122006
               </p>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col items-start justify-center gap-4 rounded-2xl border border-line bg-card p-6 sm:rounded-[24px] sm:p-10">
+        <div className="flex flex-col items-start justify-center gap-4 rounded-2xl border border-black/20 bg-card p-6 sm:rounded-[24px] sm:p-10">
           <p className="text-[15.5px] leading-relaxed text-steel sm:text-[17px]">
             Have specs ready? Skip the wait — request a formal quote directly
             and our sales team will respond within 24 hours.

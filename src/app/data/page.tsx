@@ -68,15 +68,15 @@ export default function DataCenterPage() {
               <SpecLabel index="00">NEW DIVISION</SpecLabel>
 
               <h1 className="mt-2.5 max-w-xl font-display text-[38px] font-bold leading-[1.03] tracking-tight sm:text-5xl md:text-[58px] lg:text-[64px]">
-                Data center{" "}
-                <span className="text-brick">solutions</span>, made in India.
+                Data center <span className="text-brick">solutions</span>, made
+                in India.
               </h1>
 
               <p className="mt-6 max-w-md text-[15.5px] leading-relaxed text-gray-300 sm:text-lg">
-                Server cabinets, PDUs, modular data centers and precision
-                cooling systems — engineered with technology shared from
-                international bodies, manufactured in-house at our Sonipat,
-                Haryana facility.
+                We engineer and manufacture server cabinets, PDUs, modular data
+                centers, and precision cooling systems in-house at our Sonipat,
+                Haryana facility, leveraging technology and expertise from
+                global industry leaders.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
@@ -99,8 +99,6 @@ export default function DataCenterPage() {
                   Prefer to talk specs? Request a quote →
                 </Link>
               </div>
-
-              
             </div>
 
             {/* Photo panel — same Frame treatment as the home hero */}
@@ -121,7 +119,10 @@ export default function DataCenterPage() {
       </section>
 
       {/* PRODUCT CATALOG — cards unchanged, data updated below */}
-      <section id="catalog" className="relative z-[2] mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 md:px-10 md:py-24">
+      <section
+        id="catalog"
+        className="relative z-[2] mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 md:px-10 md:py-24"
+      >
         <div className="mb-10 flex flex-col justify-between gap-5 border-b border-white/10 pb-6 sm:mb-14 sm:gap-6 sm:pb-8 md:flex-row md:items-end">
           <div>
             <Eyebrow>Product Range</Eyebrow>
@@ -130,8 +131,8 @@ export default function DataCenterPage() {
             </h2>
           </div>
           <p className="max-w-xs text-sm leading-relaxed text-gray-400">
-            {dataCenterProducts.length} product lines, manufactured in-house
-            as an authorized trader and manufacturer in India.
+            {dataCenterProducts.length} product lines, manufactured in-house as
+            an authorized trader and manufacturer in India.
           </p>
         </div>
 
@@ -139,11 +140,11 @@ export default function DataCenterPage() {
           {dataCenterProducts.map((p) => (
             <div
               key={p.slug}
-              className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-all duration-300 hover:border-brick/50 hover:bg-white/[0.05] sm:p-7"
+              className="group relative flex flex-col hover:shadow-lg hover:shadow-brick/20 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-5  transition-all duration-300 hover:border-brick/50 hover:bg-white/[0.05] sm:p-7"
             >
               <div className="mb-5 flex items-center justify-between sm:mb-6">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/[0.06] text-white transition-colors duration-300 group-hover:bg-brick/15 group-hover:text-brick sm:h-12 sm:w-12">
-                  <ProductIcon slug={p.slug} className="h-5 w-5" />
+                  <ProductIcon slug={p.slug} className="h-8 w-8" />
                 </div>
               </div>
 
@@ -156,8 +157,13 @@ export default function DataCenterPage() {
 
               <div className="mt-auto space-y-2 border-t border-white/10 pt-4">
                 {p.specs.map((s) => (
-                  <div key={s.label} className="flex items-center justify-between text-[12px]">
-                    <span className="uppercase tracking-wide text-gray-400">{s.label}</span>
+                  <div
+                    key={s.label}
+                    className="flex items-center justify-between text-[12px]"
+                  >
+                    <span className="uppercase tracking-wide text-gray-400">
+                      {s.label}
+                    </span>
                     <span className="font-semibold text-white">{s.value}</span>
                   </div>
                 ))}
@@ -185,7 +191,9 @@ export default function DataCenterPage() {
           <p className="mb-7 mt-3 text-[14px] text-gray-400 sm:mb-8 sm:mt-4 sm:text-[15px]">
             Our sales team responds within 24 hours.
           </p>
-          <Button href="/quote" variant="primary">Request a Quote</Button>
+          <Button href="/quote" variant="primary">
+            Request a Quote
+          </Button>
         </div>
       </section>
     </div>

@@ -5,7 +5,7 @@ export default function AboutPage() {
         About Us
       </span>
       <h1 className="mb-4 max-w-2xl text-[28px] font-display font-bold tracking-tight sm:text-4xl md:text-5xl">
-        Trusted structural steel manufacturing since 2011.
+        Trusted structural steel manufacturing since 2013.
       </h1>
       <p className="mb-7 max-w-2xl text-[15px] font-medium text-steel sm:text-lg md:mb-10">
         Delivering engineered steel solutions with quality, precision,
@@ -64,7 +64,7 @@ export default function AboutPage() {
           ].map(([b, s]) => (
             <div
               key={s}
-              className="rounded-2xl border border-line bg-card p-4 sm:rounded-[18px] sm:p-5"
+              className="rounded-2xl border border-black/20 bg-card p-4 sm:rounded-[18px] sm:p-4"
             >
               <b className="block text-base font-bold sm:text-lg md:text-xl">{b}</b>
               <span className="text-[11px] text-steel sm:text-[11.5px]">{s}</span>

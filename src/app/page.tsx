@@ -113,7 +113,7 @@ export default function HomePage() {
               {/* Spec strip — same divide-line data-row pattern as the About section */}
               <div className="mt-10 grid grid-cols-3 sm:mt-12">
                 {[
-                  ["15+", "Years operating"],
+                  ["13+", "Years operating"],
                   ["4", "Continents supplied"],
                   ["100%", "In-house made"],
                 ].map(([b, s]) => (
@@ -338,7 +338,7 @@ export default function HomePage() {
           <div>
             <SpecLabel index="03">About Us</SpecLabel>
             <h2 className="mb-6 mt-2.5 text-[26px] font-display font-bold tracking-tight sm:text-[30px] md:text-[34px]">
-              Trusted structural steel manufacturing since 2011.
+              Trusted structural steel manufacturing since 2013.
             </h2>
             <p className="mb-4 max-w-md text-[15.5px] leading-relaxed text-steel sm:text-[17px]">
               One of the leading manufacturers of structural steel in Northern
@@ -355,7 +355,7 @@ export default function HomePage() {
               quality management system trusted by PSUs and EPC contractors
               nationwide.
             </p>
-            <div className="mt-6 divide-y divide-line border border-line">
+            <div className="mt-6 divide-y divide-line">
               {[
                 ["Sonipat, HR", "Manufacturing unit"],
                 ["Mechanized", "Material handling"],
@@ -364,7 +364,7 @@ export default function HomePage() {
               ].map(([b, s]) => (
                 <div
                   key={s}
-                  className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 px-4 py-3.5 sm:px-5 sm:py-4"
+                  className="flex flex-wrap items-center border border-black/20 justify-between gap-x-4 gap-y-1 px-4 py-3.5 sm:px-5 sm:py-4"
                 >
                   <span className="text-[11px] uppercase tracking-wide text-steel sm:text-[11.5px]">
                     {s}
@@ -377,15 +377,12 @@ export default function HomePage() {
 
           <Frame className="relative flex h-65 flex-col justify-between overflow-hidden bg-ink p-6 sm:h-85 sm:p-7 md:h-105">
             <Image
-              src="/heroSection.png"
+              src="/factory.png"
               alt="Siemens"
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
               className="object-cover"
             />
-            <span className="relative z-2 text-[12px] tracking-wide text-black sm:text-[13px]">
-              FACTORY FLOOR - SONIPAT FACILITY
-            </span>
           </Frame>
         </div>
       </section>
@@ -406,7 +403,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 divide-y divide-line border border-line sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-5">
+          <div className="grid grid-cols-1 divide-y divide-line sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-5">
             {[
               {
                 tag: "ISO",

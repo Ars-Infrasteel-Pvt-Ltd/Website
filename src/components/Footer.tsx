@@ -81,23 +81,15 @@ export default function Footer() {
             <ul className="space-y-2.5 text-[14.5px]">
               <li>
                 <a
-                  href="mailto:sales@arsinfrasteel.com"
+                  href="mailto:info@arsinfrasteel.com"
                   className="hover:text-brick"
                 >
-                  sales@arsinfrasteel.com
+                  info@arsinfrasteel.com
                 </a>
               </li>
               <li>
                 <a href="tel:+918285123275" className="hover:text-brick">
                   +91-8285123275
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:info@arsinfrasteel.com"
-                  className="hover:text-brick"
-                >
-                  info@arsinfrasteel.com
                 </a>
               </li>
               <li>
@@ -119,7 +111,11 @@ export default function Footer() {
           <span className="flex flex-wrap items-center gap-x-3 gap-y-1">
             {SOCIAL_LINKS.map((social, i) => (
               <span key={social.label} className="flex items-center gap-3">
-                <a href={social.href} target="_blank" className="hover:text-brick">
+                <a
+                  href={social.href}
+                  target="_blank"
+                  className="hover:text-brick"
+                >
                   {social.label}
                 </a>
                 {i < SOCIAL_LINKS.length - 1 && (

@@ -148,6 +148,7 @@ export const products: Product[] = [
         standards: ["Applicable load standards"],
       },
     },
+    catalogue: "/catalogues/grating.pdf",
   },
   {
     id: "P.04",
@@ -220,6 +221,7 @@ export const products: Product[] = [
         standards: ["UL/CSA where specified"],
       },
     },
+    catalogue: "/catalogues/cable-tray.pdf",
   },
   {
     id: "P.05",
@@ -310,6 +312,7 @@ export const products: Product[] = [
         standards: ["Galvanizing/coating standards"],
       },
     },
+    catalogue: "/catalogues/chainlink-fence-barbed-wire.pdf",
   },
   {
     id: "P.07",
@@ -438,6 +441,7 @@ export const products: Product[] = [
         standards: ["Applicable IEC/EN standards"],
       },
     },
+    catalogue: "/catalogues/key-cutting-machines.pdf",
   },
   {
     id: "P.09",

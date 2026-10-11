@@ -13,12 +13,6 @@ interface Project {
 
 const projects: Project[] = [
   {
-    client: "Linxon Switzerland Ltd.",
-    name: "North-South Commuter Railway (NSCR)",
-    detail: "Supply of cable tray with supports and accessories",
-    category: "international",
-  },
-  {
     client: "KEC International Limited",
     name: "66/33kV RSS  Bangalore Metro Rail Phase-2A & 2B (KR Pura, Airport Depot, Yelahanka)",
     detail:

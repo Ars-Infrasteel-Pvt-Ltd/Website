@@ -14,6 +14,7 @@ export interface Product {
   features: string[];
   sourceType: "in-house" | "imported";
   isDataCenter?: boolean;
+  catalogue?: string;
 
   overview?: string;
   useCases?: string[];

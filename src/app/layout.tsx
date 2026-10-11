@@ -20,6 +20,11 @@ export const metadata: Metadata = {
   title: "ARS Infrasteel Pvt. Ltd.",
   description:
     "Manufacturers of cable trays, steel structures, gratings, chainlink fencing and solar structures — Sonipat, Haryana.",
+  icons: {
+    icon: "/ARSLogo.png",
+    shortcut: "/ARSLogo.png",
+    apple: "/ARSLogo.png",
+  },
 };
 
 export default function RootLayout({

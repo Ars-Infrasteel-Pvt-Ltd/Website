@@ -96,6 +96,25 @@ function GlobeIcon({ size = 20 }: { size?: number }) {
   );
 }
 
+function DownloadIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+      <path d="M7 10l5 5 5-5" />
+      <path d="M12 15V3" />
+    </svg>
+  );
+}
+
 export default function ProductDetail({ slug }: { slug: string }) {
   const product = products.find((p) => p.slug === slug);
   const [activeImage, setActiveImage] = useState(0);
@@ -490,22 +509,37 @@ export default function ProductDetail({ slug }: { slug: string }) {
             </div>
           )} */}
 
-          {/* CTA block — sticky-feeling card instead of cart/buy */}
+          {/* CTA block */}
           <div className="hidden rounded-2xl border border-black/20 bg-card p-5 sm:rounded-[20px] sm:p-6 lg:block">
             <p className="mb-4 text-sm text-steel">
               Get a custom quote for your project specs, quantities and delivery
               timeline.
             </p>
-            <Link
-              href="/quote"
-              className="group relative z-[1] inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-ink px-6 py-3 text-[14.5px] font-bold text-white sm:w-auto sm:justify-start"
-            >
-              <span
-                aria-hidden
-                className="absolute inset-0 -z-[1] origin-left scale-x-0 rounded-full bg-brick transition-transform duration-300 ease-out group-hover:scale-x-100"
-              />
-              <span className="relative z-[1]">Request a Quote</span>
-            </Link>
+            <div className="flex flex-wrap items-center gap-3">
+              <Link
+                href="/quote"
+                className="group relative z-[1] inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-ink px-6 py-3 text-[14.5px] font-bold text-white"
+              >
+                <span
+                  aria-hidden
+                  className="absolute inset-0 -z-[1] origin-left scale-x-0 rounded-full bg-brick transition-transform duration-300 ease-out group-hover:scale-x-100"
+                />
+                <span className="relative z-[1]">Request a Quote</span>
+              </Link>
+
+              {product.catalogue && (
+                <a
+                  href={product.catalogue}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-black/20 bg-white px-6 py-3 text-[14.5px] font-bold text-ink transition hover:border-brick hover:text-brick"
+                >
+                  <DownloadIcon size={16} />
+                  Download Catalogue
+                </a>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -539,10 +573,10 @@ export default function ProductDetail({ slug }: { slug: string }) {
       )}
 
       {/* ---------- Mobile sticky quote bar ---------- */}
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-white/95 p-4 backdrop-blur lg:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-40 flex gap-3 border-t border-line bg-white/95 p-4 backdrop-blur lg:hidden">
         <Link
           href="/quote"
-          className="group relative z-[1] inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-ink px-6 py-3 text-[14.5px] font-bold text-white sm:w-auto sm:justify-start"
+          className="group relative z-[1] inline-flex flex-1 items-center justify-center gap-2 overflow-hidden rounded-full bg-ink px-5 py-3 text-[14.5px] font-bold text-white"
         >
           <span
             aria-hidden
@@ -550,6 +584,20 @@ export default function ProductDetail({ slug }: { slug: string }) {
           />
           <span className="relative z-[1]">Request a Quote</span>
         </Link>
+
+        {product.catalogue && (
+          <a
+            href={product.catalogue}
+            download
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Download catalogue"
+            className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-black/20 bg-white px-5 py-3 text-[14.5px] font-bold text-ink transition active:border-brick active:text-brick"
+          >
+            <DownloadIcon size={16} />
+            Catalogue
+          </a>
+        )}
       </div>
 
       {/* Spacer so sticky bar doesn't overlap content on mobile */}

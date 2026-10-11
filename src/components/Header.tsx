@@ -48,7 +48,13 @@ export default function Header() {
             isDataRoute ? "text-white" : ""
           }`}
         >
-          <Image src={"/ARSLogo.png"} alt="Logo" height={50} width={120} className="h-auto w-auto"/>
+          <Image
+            src="/ARSLogo.png"
+            alt="Logo"
+            height={50}
+            width={118}
+            className="h-auto w-auto"
+          />
         </Link>
 
         {/* Desktop nav */}

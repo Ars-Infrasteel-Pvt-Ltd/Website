@@ -13,17 +13,15 @@ const spaceGrotesk = Space_Grotesk({
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-body",
-  weight: ["400", "500", "600", "700"],
+  // weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   title: "ARS Infrasteel Pvt. Ltd.",
   description:
     "Manufacturers of cable trays, steel structures, gratings, chainlink fencing and solar structures — Sonipat, Haryana.",
-  icons: {
-    icon: "/ARSLogo.png",
-    shortcut: "/ARSLogo.png",
-    apple: "/ARSLogo.png",
+  appleWebApp: {
+    title: "ARSInfraSteel",
   },
 };
 

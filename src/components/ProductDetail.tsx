@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/Button";
@@ -115,9 +115,45 @@ function DownloadIcon({ size = 18 }: { size?: number }) {
   );
 }
 
+function EyeIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>
+  );
+}
+
 export default function ProductDetail({ slug }: { slug: string }) {
   const product = products.find((p) => p.slug === slug);
   const [activeImage, setActiveImage] = useState(0);
+
+  const [isCatalogueOpen, setIsCatalogueOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isCatalogueOpen) return;
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsCatalogueOpen(false);
+    };
+
+    document.addEventListener("keydown", closeOnEscape);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", closeOnEscape);
+      document.body.style.overflow = "";
+    };
+  }, [isCatalogueOpen]);
 
   if (!product) return null;
 
@@ -515,10 +551,11 @@ export default function ProductDetail({ slug }: { slug: string }) {
               Get a custom quote for your project specs, quantities and delivery
               timeline.
             </p>
-            <div className="flex flex-wrap items-center gap-3">
+
+            <div className="flex flex-col gap-3">
               <Link
                 href="/quote"
-                className="group relative z-[1] inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-ink px-6 py-3 text-[14.5px] font-bold text-white"
+                className="group relative z-[1] inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-ink px-6 py-3 text-[14.5px] font-bold text-white"
               >
                 <span
                   aria-hidden
@@ -528,16 +565,24 @@ export default function ProductDetail({ slug }: { slug: string }) {
               </Link>
 
               {product.catalogue && (
-                <a
-                  href={product.catalogue}
-                  download
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-black/20 bg-white px-6 py-3 text-[14.5px] font-bold text-ink transition hover:border-brick hover:text-brick"
-                >
-                  <DownloadIcon size={16} />
-                  Download Catalogue
-                </a>
+                <div className="grid grid-cols-2 gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setIsCatalogueOpen(true)}
+                    className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-black/20 bg-white px-5 py-3 text-[14.5px] font-bold text-ink transition hover:border-brick hover:text-brick"
+                  >
+                    <EyeIcon size={16} />
+                    View Catalogue
+                  </button>
+                  <a
+                    href={product.catalogue}
+                    download
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-black/20 bg-white px-5 py-3 text-[14.5px] font-bold text-ink transition hover:border-brick hover:text-brick"
+                  >
+                    <DownloadIcon size={16} />
+                    Download
+                  </a>
+                </div>
               )}
             </div>
           </div>
@@ -586,22 +631,85 @@ export default function ProductDetail({ slug }: { slug: string }) {
         </Link>
 
         {product.catalogue && (
-          <a
-            href={product.catalogue}
-            download
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Download catalogue"
-            className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-black/20 bg-white px-5 py-3 text-[14.5px] font-bold text-ink transition active:border-brick active:text-brick"
-          >
-            <DownloadIcon size={16} />
-            Catalogue
-          </a>
+          <>
+            <button
+              type="button"
+              onClick={() => setIsCatalogueOpen(true)}
+              aria-label="View catalogue"
+              className="inline-flex h-12 w-12 flex-shrink-0 cursor-pointer items-center justify-center rounded-full border border-black/20 bg-white text-ink transition active:border-brick active:text-brick"
+            >
+              <EyeIcon size={18} />
+            </button>
+            <a
+              href={product.catalogue}
+              download
+              aria-label="Download catalogue"
+              className="inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-black/20 bg-white text-ink transition active:border-brick active:text-brick"
+            >
+              <DownloadIcon size={18} />
+            </a>
+          </>
         )}
       </div>
 
       {/* Spacer so sticky bar doesn't overlap content on mobile */}
       <div className="h-20 lg:hidden" />
+      {isCatalogueOpen && product.catalogue && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-ink/80 p-4 backdrop-blur-sm sm:p-6"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="catalogue-title"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) setIsCatalogueOpen(false);
+          }}
+        >
+          <div className="relative flex h-[calc(100dvh-2rem)] w-full max-w-5xl flex-col overflow-hidden bg-white shadow-2xl sm:h-[calc(100dvh-3rem)]">
+            <div className="flex shrink-0 items-center justify-between gap-4 border-b border-line px-4 py-3 sm:px-6 sm:py-4">
+              <h2
+                id="catalogue-title"
+                className="min-w-0 truncate text-base font-bold sm:text-lg"
+              >
+                {product.name} Catalogue
+              </h2>
+              <div className="flex shrink-0 items-center gap-1">
+                <a
+                  href={product.catalogue}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hidden rounded-full px-3 py-2 text-xs font-bold text-steel transition hover:text-brick sm:inline-flex"
+                >
+                  Open in new tab
+                </a>
+                <a
+                  href={product.catalogue}
+                  download
+                  aria-label="Download catalogue"
+                  className="flex h-10 w-10 items-center justify-center text-steel transition-colors hover:text-brick"
+                >
+                  <DownloadIcon size={18} />
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setIsCatalogueOpen(false)}
+                  aria-label="Close catalogue"
+                  className="flex h-10 w-10 cursor-pointer items-center justify-center text-2xl leading-none text-steel transition-colors hover:text-brick"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
+
+            <div className="min-h-0 flex-1 bg-canvas">
+              <iframe
+                src={product.catalogue}
+                title={`${product.name} catalogue`}
+                className="h-full w-full border-0"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
